@@ -39,14 +39,34 @@ export function TodoList() {
     <div className="flex flex-col gap-4">
       <TodoInput onAdd={addTodo} />
 
-      <TodoSearch value={query} onChange={setQuery} />
+      <section
+        aria-label="검색 및 필터"
+        className="flex flex-col gap-3 rounded-lg border bg-card p-4"
+      >
+        <TodoSearch value={query} onChange={setQuery} />
 
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <TodoFilter value={filter} onChange={setFilter} />
-        <TodoSort value={sortBy} onChange={setSortBy} />
+        <div className="grid grid-cols-[3.5rem_1fr] items-center gap-x-3 gap-y-3">
+          <span className="text-xs font-medium text-muted-foreground">상태</span>
+          <TodoFilter value={filter} onChange={setFilter} />
+
+          <span className="text-xs font-medium text-muted-foreground">
+            카테고리
+          </span>
+          <TodoCategoryFilter
+            value={categoryFilter}
+            onChange={setCategoryFilter}
+          />
+
+          <span className="text-xs font-medium text-muted-foreground">정렬</span>
+          <TodoSort value={sortBy} onChange={setSortBy} />
+        </div>
+      </section>
+
+      <div className="flex items-center justify-between px-1 text-xs text-muted-foreground">
+        <span>
+          {visibleTodos.length}개 표시 / 전체 {todos.length}개
+        </span>
       </div>
-
-      <TodoCategoryFilter value={categoryFilter} onChange={setCategoryFilter} />
 
       {loaded && visibleTodos.length === 0 ? (
         <p className="py-6 text-center text-sm text-muted-foreground">

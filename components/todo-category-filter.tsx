@@ -13,7 +13,7 @@ export function TodoCategoryFilter({
   onChange,
 }: TodoCategoryFilterProps) {
   return (
-    <div role="radiogroup" aria-label="카테고리 필터" className="flex gap-1">
+    <div role="radiogroup" aria-label="카테고리 필터" className="flex flex-wrap gap-1">
       {CATEGORY_FILTERS.map((item) => {
         const selected = item.value === value;
         return (

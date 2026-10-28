@@ -10,7 +10,7 @@ interface TodoFilterProps {
 
 export function TodoFilter({ value, onChange }: TodoFilterProps) {
   return (
-    <div role="radiogroup" aria-label="필터" className="flex gap-1">
+    <div role="radiogroup" aria-label="필터" className="flex flex-wrap gap-1">
       {TODO_FILTERS.map((item) => {
         const selected = item.value === value;
         return (

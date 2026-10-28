@@ -10,7 +10,7 @@ interface TodoSortProps {
 
 export function TodoSort({ value, onChange }: TodoSortProps) {
   return (
-    <div role="radiogroup" aria-label="정렬" className="flex gap-1">
+    <div role="radiogroup" aria-label="정렬" className="flex flex-wrap gap-1">
       {SORT_OPTIONS.map((item) => {
         const selected = item.value === value;
         return (
